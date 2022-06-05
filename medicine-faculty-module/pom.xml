@@ -17,6 +17,14 @@
 
     <packaging>jar</packaging>
 
+    <properties>
+        <liquibase.version>4.5.0</liquibase.version>
+        <liquibase-hibernate5.version>4.5.0</liquibase-hibernate5.version>
+        <spring-boot.version>2.5.5</spring-boot.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
+        <javassist.version>3.27.0-GA</javassist.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -27,5 +35,50 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase.version}</version>
+                <configuration>
+                   <propertyFile>medicine-faculty-module/src/main/resources/application.properties</propertyFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-core</artifactId>
+                        <version>${liquibase.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.liquibase.ext</groupId>
+                        <artifactId>liquibase-hibernate5</artifactId>
+                        <version>${liquibase-hibernate5.version}</version>
+                        </dependency>
+                    <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-data-jpa</artifactId>
+                         <version>${spring-boot.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>javax.validation</groupId>
+                        <artifactId>validation-api</artifactId>
+                        <version>${validation-api.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.javassist</groupId>
+                        <artifactId>javassist</artifactId>
+                        <version>${javassist.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>tech.jhipster</groupId>
+                        <artifactId>jhipster-framework</artifactId>
+                        <version>${jhipster-dependencies.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

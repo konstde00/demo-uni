@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:14.1-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=password-for-demo-uni-db
+      - POSTGRES_USER=demo-uni
+      - POSTGRES_DB=demo-uni
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    networks:
+      - pricing
+    ports:
+      - 127.0.0.1:5432:5432
+
+volumes:
+  postgres:
+
+networks:
+  pricing:
+    driver: bridge

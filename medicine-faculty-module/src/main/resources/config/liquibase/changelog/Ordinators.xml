@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet author="kostya_dementiev" id="create_table_ordinators">
+
+        <createTable tableName="ordinators">
+
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="name" type="varchar">
+            </column>
+
+            <column name="surname" type="varchar">
+            </column>
+
+            <column name="speciality" type="varchar">
+            </column>
+
+            <column name="email" type="varchar">
+            </column>
+
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="kostya_dementiev" id="load_ordinators_data">
+
+        <loadData
+                  file="config/liquibase/data/ordinators.csv"
+                  separator=";"
+                  tableName="ordinators"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="name" type="varchar"/>
+            <column name="surname" type="varchar"/>
+            <column name="speciality" type="varchar"/>
+            <column name="email" type="varchar"/>
+        </loadData>
+
+    </changeSet>
+
+</databaseChangeLog>

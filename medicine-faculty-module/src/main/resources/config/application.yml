@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo-uni
+    username: demo-uni
+    password: password-for-demo-uni-db
+  liquibase:
+    contexts: dev
+    change-log: config/liquibase/master.xml
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    url: ${spring.datasource.url}
+  jpa:
+    properties:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      hibernate:
+        format_sql: true
+    open-in-view: false
