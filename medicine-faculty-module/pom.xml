@@ -71,11 +71,6 @@
                         <artifactId>javassist</artifactId>
                         <version>${javassist.version}</version>
                     </dependency>
-                    <dependency>
-                        <groupId>tech.jhipster</groupId>
-                        <artifactId>jhipster-framework</artifactId>
-                        <version>${jhipster-dependencies.version}</version>
-                    </dependency>
                 </dependencies>
             </plugin>
         </plugins>

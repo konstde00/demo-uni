@@ -9,7 +9,7 @@
 	    <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>application-module</artifactId>
@@ -50,5 +50,18 @@
         </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                    <mainClass>com.konstde00.applicationmodule.Application</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
